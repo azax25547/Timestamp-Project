@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timestamp Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    </head>
+<body class="container text-center">
+    <h1>API Project: Timestamp Microservice</h1>
+<p><b>User Stories</b></p>
+<div class="lead mt-5 text-justify">
+    <ol>
+        <li>The API endpoint is GET <code> [project_url]/api/timestamp/:date_string?</code></li>
+        <li>A date string is valid if can be successfully parsed by <code>new Date(date_string)</code>.
+            Note that the unix timestamp needs to be an <b>integer</b> (not a string) specifying <b>milliseconds</b>.
+            In our test we will use date strings compliant with ISO-8601 (e.g. "2016-11-20") because this will ensure an UTC timestamp.</li>
+        <li>
+            If the date string is <b>empty</b> it should be equivalent to trigger <code>new Date()</code>, i.e. the service uses the current timestamp.
+        </li>
+        <li>
+            If the date string is <b>valid</b> the api returns a JSON having the structure <br />
+            <code>
+            {"unix": <date.getTime()>, "utc" : <date.toUTCString()> }
+            e.g. {"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29 GMT"}</code>
+        </li>
+        <li>
+            If the date string is <b>invalid</b> the api returns a JSON having the structure
+           <code> {"error" : "Invalid Date" }.</code>
+        </li>
+    </ol>
+</div>
+    <br><br>
+<p><b>Example Usage</b></p>
+<div>
+    <a href="#">[project url]/api/timestamp/2015-12-25</a><br><a href="#">[project url]/api/timestamp/1450137600</a>
+</div>
+    <br>
+<p><b>Example Output</b></p>
+<div>
+    <code>
+        {"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}
+    </code>
+</div>
+
+<footer class="mt-auto">
+    <div class="text-muted">
+        by <a href="www.adityanarayanmishra.me">Aditya Narayan Mishra</a>
+    </div>
+
+</footer>
+</body>
+</html>
